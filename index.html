@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(71, 111, 21);
+            border: 10px solid red;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 70px;
+            font-family: cursive;
+            display: block;
+        }
+
+        .container {
+            margin: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        ;
+
+        .Row {
+            display: flex;
+            justify-items: center;
+        }
+
+        .box {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            background: linear-gradient(rgb(97, 166, 55), rgb(103, 151, 82));
+            width: 12vw;
+            height: 19vh;
+            border: 5px solid rgba(75, 11, 11, 0.525);
+            border-radius: 10px;
+            padding-top: 8px;
+            padding-bottom: 10px;
+            text-align: center;
+            font-size: 120px;
+            font-family: cursive;
+            color: rgb(17, 147, 52);
+
+        }
+
+        ;
+
+        .head {
+            display: flex;
+            align-items: center
+        }
+
+        ;
+
+        .wholeBody {
+            display: flex;
+            justify-content: center;
+            border: 10px;
+            height: 30px;
+            background-color: aqua;
+
+        }
+
+        .boxes {
+            display: flex;
+            justify-content: space-around;
+            height: 100%;
+
+        }
+
+        .result {
+            height: 100%;
+            width: 100%;
+            border: 5px solid rgba(75, 11, 11, 0.525);
+            border-radius: 20px;
+
+            background: linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9));
+
+        }
+
+        .innerDiv {
+
+            height: 277px;
+            margin: 5px;
+            padding: 4px;
+            text-align: center;
+            font-family: cursive;
+            font-size: 20px;
+            color: rgb(17, 147, 52);
+            border-radius: 5px
+        }
+
+        ;
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h1>Tic Tac Toe </h1>
+    </div>
+    <div class="boxes">
+        <div class="result ">
+            <div class="innerDiv" id="firstCard">
+
+
+                <h3>X </h3>
+                <h3> Player1 </h3>
+                <h4 id="player1name"></h4>
+                <h3 id="firstTurn"></h3>
+            </div>
+        </div>
+        <div class="result">
+            <span class="container head">
+
+                <div class="Row">
+                    <div class="box x " id="box1" onclick="clickHere('box1')"></div>
+
+                    <div class="box x " id="box2" onclick="clickHere('box2')"></div>
+                    <div class="box" id="box3" onclick="clickHere('box3')"></div>
+                </div>
+                <div class="Row">
+                    <div class="box x" id="box4" onclick="clickHere('box4')"></div>
+                    <div class="box" id="box5" onclick="clickHere('box5')"></div>
+                    <div class="box x" id="box6" onclick="clickHere('box6')"></div>
+                </div>
+                <div class="Row">
+                    <div class="box" id="box7" onclick="clickHere('box7')"></div>
+                    <div class="box x" id="box8" onclick="clickHere('box8')"></div>
+                    <div class="box" id="box9" onclick="clickHere('box9')"></div>
+                </div>
+            </span>
+        </div>
+        <div class="result secondPlayerDiv">
+            <div class="innerDiv" id="secondCard">
+
+                <h3>0 </h3>
+                <h3> Player 2 </h3>
+                <h4 id="player2name"></h4>
+                <h3 id="secondTurn"></h3>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    //first player is x//data of first player
+    let player1 = prompt("player 1 is :", "your name here");
+    let player1name = document.getElementById("player1name");
+    player1name.innerHTML = player1;
+
+    //first player is 0//data of second player
+    let player2 = prompt("player 2 is:", "your name here")
+    let player2name = document.getElementById("player2name");
+    player2name.innerHTML = player2;
+
+
+    let player1Card = document.getElementById("firstCard");
+    let player2Card = document.getElementById("secondCard");
+
+
+    let firstTurn = document.getElementById("firstTurn")
+    let secondTurn = document.getElementById("secondTurn");
+
+    console.log(player1 + " is player 1 ", player2 + " is player 2");
+function startGame (){
+
+
+
+        let clickToSelect = player1Card.style.background = "linear-gradient(red, black)";
+ }  
+ setTimeout(startGame,3000)
+;
+
+
+
+    let numberOfTurns = 1;
+
+    
+    ///function to call at onclick
+    function clickHere(id) {
+        numberOfTurns++
+        let cells = document.getElementById(id);
+
+
+        ;
+
+        console.log(id, numberOfTurns)
+        if (numberOfTurns % 2 === 0) {
+
+            cells.style.background = "linear-gradient(red, black)"
+
+
+            if (cells.innerText) {
+                cells.innerHTML = "";
+                cells.style.background = "linear-gradient(rgb(97, 166, 55), rgb(103, 151, 82))";
+                --numberOfTurns
+
+            }
+            else {
+                cells.innerHTML = "x",
+                    console.log(player2 + "'s turn");
+
+                changeDiv1();
+
+            }
+        }
+        else {
+            cells.style.background = "linear-gradient(blue, black)"
+            if (cells.innerText) {
+                cells.innerHTML = "";
+                cells.style.background = "linear-gradient(rgb(97, 166, 55), rgb(103, 151, 82))";
+                --numberOfTurns;
+
+            }
+            else {
+                cells.innerHTML = "0";
+
+                console.log(player1 + "'s turn")
+                changeDiv2();
+
+
+            }
+        }
+
+    }
+
+    function changeDiv1() {
+
+        let clickToSelect = player2Card.style.background = "linear-gradient(blue, black)";
+        firstTurn.innerHTML = "your turn";
+        console.log(firstTurn, "MY TURN")
+        changebackCard1()
+
+    };
+    function changeDiv2() {
+
+        let clickToSelect = player1Card.style.background = "linear-gradient(red, black)"
+        secondTurn.innerText = "your turn";
+
+        changebackCard2();
+    };
+    function changebackCard1() {
+        let clickToSelect = player1Card.style.background = " linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9))";
+        firstTurn.innerText = ""
+        console.log(player1Card)
+    }
+    function changebackCard2() {
+        let clickToSelect = player2Card.style.background = " linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9))";
+        secondTurn.innerText = ""
+        console.log(player2Card)
+    }
+    let box1 = document.getElementById("box1");
+    let box3 = document.getElementById("box3");
+    let box5 = document.getElementById("box5");
+    let box7 = document.getElementById("box7")
+    let box9 = document.getElementById("box9");
+
+
+    function winnerX() {
+        if
+            (box1.innerHTML === "x" &&
+            box5.innerHTML === "x" &&
+            box9.innerHTML === "x" ||
+            box1.innerHTML === "0" &&
+            box5.innerHTML === "0" &&
+            box9.innerHTML === "0"
+
+        ) {
+            console.log("you are winner")
+        }
+        else if (
+            box7.innerHTML === "x" &&
+            box5.innerHTML === "x" &&
+            box3.innerHTML === "x" ||
+            box7.innerHTML === "0" &&
+            box5.innerHTML === "0" &&
+            box3.innerHTML === "0") {
+
+        }
+        else if (box1.innerHTML === "x" &&
+            box2.innerHTML === "x" &&
+            box3.innerHTML === "x" ||
+            box1.innerHTML === "0" &&
+            box2.innerHTML === "0" &&
+            box3.innerHTML === "0") {
+
+        }
+        else if (box4.innerHTML === "x" &&
+            box5.innerHTML === "x" &&
+            box6.innerHTML === "x" ||
+            box4.innerHTML === "0" &&
+            box5.innerHTML === "0" &&
+            box6.innerHTML === "0") {
+
+        }
+        else if (box7.innerHTML === "x" &&
+            box8.innerHTML === "x" &&
+            box9.innerHTML === "x" ||
+            box7.innerHTML === "0" &&
+            box8.innerHTML === "0" &&
+            box9.innerHTML === "0") {
+
+        }
+        else if (box1.innerHTML === "x" &&
+            box4.innerHTML === "x" &&
+            box7.innerHTML === "x" ||
+            box1.innerHTML === "0" &&
+            box4.innerHTML === "0" &&
+            box7.innerHTML === "0") {
+
+        }
+        else if (box2.innerHTML === "x" &&
+            box5.innerHTML === "x" &&
+            box8.innerHTML === "x" ||
+            box2.innerHTML === "0" &&
+            box5.innerHTML === "0" &&
+            box8.innerHTML === "0") {
+
+        } else if (box3.innerHTML === "x" &&
+            box6.innerHTML === "x" &&
+            box9.innerHTML === "x" ||
+            box3.innerHTML === "0" &&
+            box6.innerHTML === "0" &&
+            box9.innerHTML === "0") {
+
+        }
+    } winnerX()
+
+
+</script>
+
+</html>
