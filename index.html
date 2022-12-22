@@ -175,9 +175,13 @@ function startGame (){
 
 
         let clickToSelect = player1Card.style.background = "linear-gradient(red, black)";
- }  
- setTimeout(startGame,3000)
-;
+
+ } setTime(); 
+ function setTime (){
+ setTimeout(startGame,3000);
+ clickHere()
+};
+
 
 
 
@@ -186,7 +190,7 @@ function startGame (){
     
     ///function to call at onclick
     function clickHere(id) {
-        numberOfTurns++
+        numberOfTurns++;
         let cells = document.getElementById(id);
 
 
