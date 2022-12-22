@@ -167,27 +167,51 @@
 
 
     let firstTurn = document.getElementById("firstTurn")
-    let secondTurn = document.getElementById("secondTurn");
+    let secondTurn = document.getElementById("secondTurn")
+    
 
     console.log(player1 + " is player 1 ", player2 + " is player 2");
-function startGame (){
+    function startGame() {
 
 
 
         let clickToSelect = player1Card.style.background = "linear-gradient(red, black)";
 
- } setTime(); 
- function setTime (){
- setTimeout(startGame,3000);
- clickHere()
-};
+    }
+    function changebackCard1() {
+        let clickToSelect = player1Card.style.background = " linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9))";
+        firstTurn.innerText = ""
+        console.log(player1Card)
+    }
+    function changeDiv1() {
+
+        let clickToSelect = player2Card.style.background = "linear-gradient(blue, black)";
+        firstTurn.innerText = "your turn"
+        console.log(firstTurn.innerText);
+        changebackCard1()
+
+    };
+       
+    function changebackCard2() {
+        let clickToSelect = player2Card.style.background = " linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9))";
+        secondTurn.innerText = ""
+        console.log(player2Card)
+    }
+    function changeDiv2() {
+
+        let clickToSelect = player1Card.style.background = "linear-gradient(red, black)"
+        secondTurn.Text = "your turn"
+        console.log('seconfs turn')
+
+        changebackCard2();
+    };
 
 
 
 
     let numberOfTurns = 1;
 
-    
+
     ///function to call at onclick
     function clickHere(id) {
         numberOfTurns++;
@@ -234,32 +258,6 @@ function startGame (){
             }
         }
 
-    }
-
-    function changeDiv1() {
-
-        let clickToSelect = player2Card.style.background = "linear-gradient(blue, black)";
-        firstTurn.innerHTML = "your turn";
-        console.log(firstTurn, "MY TURN")
-        changebackCard1()
-
-    };
-    function changeDiv2() {
-
-        let clickToSelect = player1Card.style.background = "linear-gradient(red, black)"
-        secondTurn.innerText = "your turn";
-
-        changebackCard2();
-    };
-    function changebackCard1() {
-        let clickToSelect = player1Card.style.background = " linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9))";
-        firstTurn.innerText = ""
-        console.log(player1Card)
-    }
-    function changebackCard2() {
-        let clickToSelect = player2Card.style.background = " linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9))";
-        secondTurn.innerText = ""
-        console.log(player2Card)
     }
     let box1 = document.getElementById("box1");
     let box3 = document.getElementById("box3");
@@ -337,6 +335,10 @@ function startGame (){
 
         }
     } winnerX()
+    function setTime() {
+        setTimeout(startGame, 3000);
+    };
+    setTime();
 
 
 </script>
