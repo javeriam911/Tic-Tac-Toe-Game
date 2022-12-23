@@ -97,6 +97,28 @@
             border-radius: 5px
         }
 
+        #winner1 {
+            height: 277px;
+            margin: 5px;
+            padding: 4px;
+            text-align: center;
+            font-family: cursive;
+            font-size: 50px;
+            color: rgb(187, 210, 15);
+            border-radius: 5px
+        }
+
+        #winner2 {
+            height: 277px;
+            margin: 5px;
+            padding: 4px;
+            text-align: center;
+            font-family: cursive;
+            font-size: 50px;
+            color: rgb(187, 210, 15);
+            border-radius: 5px
+        }
+
         ;
     </style>
 </head>
@@ -115,6 +137,9 @@
                 <h3> Player1 </h3>
                 <h4 id="player1name"></h4>
                 <h3 id="firstTurn"></h3>
+            </div>
+            <div class="innerDiv">
+                <h1 id="winner1"></h1>
             </div>
         </div>
         <div class="result">
@@ -146,6 +171,9 @@
                 <h4 id="player2name"></h4>
                 <h3 id="secondTurn"></h3>
             </div>
+            <div class="innerDiv">
+                <h1 id="winner2"></h1>
+            </div>
         </div>
     </div>
 
@@ -168,9 +196,10 @@
 
     let firstTurn = document.getElementById("firstTurn")
     let secondTurn = document.getElementById("secondTurn")
-    
 
     console.log(player1 + " is player 1 ", player2 + " is player 2");
+    let startTheGame = false
+
     function startGame() {
 
 
@@ -191,7 +220,7 @@
         changebackCard1()
 
     };
-       
+
     function changebackCard2() {
         let clickToSelect = player2Card.style.background = " linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9))";
         secondTurn.innerText = ""
@@ -257,90 +286,162 @@
 
             }
         }
-
+        winner()
     }
     let box1 = document.getElementById("box1");
+    let box2 = document.getElementById("box2");
+
     let box3 = document.getElementById("box3");
+    let box4 = document.getElementById("box4");
+
     let box5 = document.getElementById("box5");
+
+    let box6 = document.getElementById("box6");
+
     let box7 = document.getElementById("box7")
+    let box8 = document.getElementById("box8");
+
     let box9 = document.getElementById("box9");
-
-
-    function winnerX() {
+    let winner1 = document.getElementById("winner1");
+    console.log(winner1)
+    function winner1innerText() {
+        winner1.innerHTML = " winner";
+        console.log(winner1)
+        clickHere === false
+    }
+    function winner2innerText() {
+        winner2.innerHTML = " winner";
+        console.log(winner2)
+    }
+    function winner() {
         if
             (box1.innerHTML === "x" &&
             box5.innerHTML === "x" &&
-            box9.innerHTML === "x" ||
-            box1.innerHTML === "0" &&
-            box5.innerHTML === "0" &&
-            box9.innerHTML === "0"
+            box9.innerHTML === "x"
 
         ) {
-            console.log("you are winner")
+            winner1innerText()
+            console.log("player1 is winner")
         }
         else if (
             box7.innerHTML === "x" &&
             box5.innerHTML === "x" &&
-            box3.innerHTML === "x" ||
-            box7.innerHTML === "0" &&
-            box5.innerHTML === "0" &&
-            box3.innerHTML === "0") {
+            box3.innerHTML === "x") {
+                winner1innerText()
+            console.log("player1 is winner")
 
         }
         else if (box1.innerHTML === "x" &&
             box2.innerHTML === "x" &&
-            box3.innerHTML === "x" ||
-            box1.innerHTML === "0" &&
-            box2.innerHTML === "0" &&
-            box3.innerHTML === "0") {
+            box3.innerHTML === "x") {
+                winner1innerText()
+            console.log("player1 is winner")
 
         }
-        else if (box4.innerHTML === "x" &&
+        else if (
+            box4.innerHTML === "x" &&
             box5.innerHTML === "x" &&
-            box6.innerHTML === "x" ||
-            box4.innerHTML === "0" &&
-            box5.innerHTML === "0" &&
-            box6.innerHTML === "0") {
+            box6.innerHTML === "x") {
+                winner1innerText()
+            console.log("player1 is winner")
 
         }
         else if (box7.innerHTML === "x" &&
             box8.innerHTML === "x" &&
-            box9.innerHTML === "x" ||
-            box7.innerHTML === "0" &&
-            box8.innerHTML === "0" &&
-            box9.innerHTML === "0") {
+            box9.innerHTML === "x") {
+                winner1innerText()
+            console.log("player1 is winner")
 
         }
         else if (box1.innerHTML === "x" &&
             box4.innerHTML === "x" &&
-            box7.innerHTML === "x" ||
-            box1.innerHTML === "0" &&
-            box4.innerHTML === "0" &&
-            box7.innerHTML === "0") {
+            box7.innerHTML === "x") {
+                winner1innerText()
+            console.log("player1 is winner")
 
         }
         else if (box2.innerHTML === "x" &&
             box5.innerHTML === "x" &&
-            box8.innerHTML === "x" ||
-            box2.innerHTML === "0" &&
-            box5.innerHTML === "0" &&
-            box8.innerHTML === "0") {
+            box8.innerHTML === "x") {
+                winner1innerText()
+            console.log("player1 is winner")
 
         } else if (box3.innerHTML === "x" &&
             box6.innerHTML === "x" &&
-            box9.innerHTML === "x" ||
-            box3.innerHTML === "0" &&
-            box6.innerHTML === "0" &&
-            box9.innerHTML === "0") {
+            box9.innerHTML === "x") {
+                winner1innerText()
+            console.log("player1 is winner")
 
         }
-    } winnerX()
-    function setTime() {
+        if
+            (
+            box1.innerHTML === "0" &&
+            box5.innerHTML === "0" &&
+            box9.innerHTML === "0"
+
+        ) { winner2innerText()
+            console.log("player2 iswinner")
+        }
+        else if (
+            box7.innerHTML === "0" &&
+            box5.innerHTML === "0" &&
+            box3.innerHTML === "0") { winner2innerText()
+            console.log("player2 is winner")
+
+        }
+        else if (
+            box1.innerHTML === "0" &&
+            box2.innerHTML === "0" &&
+            box3.innerHTML === "0") { winner2innerText()
+            console.log("player2 iswinner")
+
+        }
+        else if (
+            box4.innerHTML === "0" &&
+            box5.innerHTML === "0" &&
+            box6.innerHTML === "0") { winner2innerText()
+            console.log("player2 is winner")
+
+        }
+        else if (box7.innerHTML === "0" &&
+            box8.innerHTML === "0" &&
+            box9.innerHTML === "0") { winner2innerText()
+            console.log("player2 is winner")
+
+        }
+        else if (
+            box1.innerHTML === "0" &&
+            box4.innerHTML === "0" &&
+            box7.innerHTML === "0") { winner2innerText()
+            console.log("player2 is winner")
+
+        }
+        else if (
+            box2.innerHTML === "0" &&
+            box5.innerHTML === "0" &&
+            box8.innerHTML === "0") { winner2innerText()
+            console.log("player2 is winner")
+
+        } else if (
+            box3.innerHTML === "0" &&
+            box6.innerHTML === "0" &&
+            box9.innerHTML === "0") { winner2innerText()
+            console.log("player2 is winner")
+
+        }
+    }
+
+
+
+    function setTime(startTheGame) {
         setTimeout(startGame, 3000);
     };
     setTime();
-
-
+    if (setTime() === true) {
+        clickHere()
+    }
+    else { false }
+    ;
 </script>
 
 </html>
