@@ -9,7 +9,7 @@
     <style>
         body {
             background-color: rgb(71, 111, 21);
-            border: 10px solid red;
+            border: 10px solid rgb(135, 186, 16);
         }
 
         h1 {
@@ -52,7 +52,7 @@
 
         ;
 
-        .head {
+        #head {
             display: flex;
             align-items: center
         }
@@ -82,6 +82,7 @@
             border-radius: 20px;
 
             background: linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9));
+            margin-bottom: 10px;
 
         }
 
@@ -92,29 +93,29 @@
             padding: 4px;
             text-align: center;
             font-family: cursive;
-            font-size: 20px;
+            font-size: 50px;
             color: rgb(17, 147, 52);
             border-radius: 5px
         }
 
         #winner1 {
             height: 277px;
-            margin: 5px;
-            padding: 4px;
+            margin: 15px;
+            padding: 14px;
             text-align: center;
             font-family: cursive;
-            font-size: 50px;
+            font-size: 60px;
             color: rgb(187, 210, 15);
             border-radius: 5px
         }
 
         #winner2 {
             height: 277px;
-            margin: 5px;
-            padding: 4px;
+            margin: 15px;
+            padding: 14px;
             text-align: center;
             font-family: cursive;
-            font-size: 50px;
+            font-size: 60px;
             color: rgb(187, 210, 15);
             border-radius: 5px
         }
@@ -138,12 +139,12 @@
                 <h4 id="player1name"></h4>
                 <h3 id="firstTurn"></h3>
             </div>
-            <div class="innerDiv">
+            <span class="innerDiv">
                 <h1 id="winner1"></h1>
-            </div>
+            </span>
         </div>
-        <div class="result">
-            <span class="container head">
+        <div class="result" id="result">
+            <span class="container " id="head">
 
                 <div class="Row">
                     <div class="box x " id="box1" onclick="clickHere('box1')"></div>
@@ -164,16 +165,18 @@
             </span>
         </div>
         <div class="result secondPlayerDiv">
-            <div class="innerDiv" id="secondCard">
+           
+                <div class="innerDiv" id="secondCard">
 
-                <h3>0 </h3>
-                <h3> Player 2 </h3>
-                <h4 id="player2name"></h4>
-                <h3 id="secondTurn"></h3>
-            </div>
-            <div class="innerDiv">
-                <h1 id="winner2"></h1>
-            </div>
+                    <h3>0 </h3>
+                    <h3> Player 2 </h3>
+                    <h4 id="player2name"></h4>
+                    <h3 id="secondTurn"></h3>
+                </div>
+                <span class="innerDiv">
+                    <h1 id="winner2"></h1>
+                </span>
+          
         </div>
     </div>
 
@@ -302,16 +305,26 @@
     let box8 = document.getElementById("box8");
 
     let box9 = document.getElementById("box9");
+    let boxesHead = document.getElementById("result")
     let winner1 = document.getElementById("winner1");
     console.log(winner1)
+    function stopGame() {
+        boxesHead.style.display = "none"
+    }
+
+
+
     function winner1innerText() {
-        winner1.innerHTML = " winner";
+        winner1.innerHTML = " you win !";
         console.log(winner1)
-        clickHere === false
+        stopGame();
+        player2Card.style.background = " linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9))";
     }
     function winner2innerText() {
         winner2.innerHTML = " winner";
         console.log(winner2)
+        stopGame();
+        player1Card.style.background = " linear-gradient(rgb(3, 47, 14), rgb(86, 86, 9))";
     }
     function winner() {
         if
@@ -327,14 +340,14 @@
             box7.innerHTML === "x" &&
             box5.innerHTML === "x" &&
             box3.innerHTML === "x") {
-                winner1innerText()
+            winner1innerText()
             console.log("player1 is winner")
 
         }
         else if (box1.innerHTML === "x" &&
             box2.innerHTML === "x" &&
             box3.innerHTML === "x") {
-                winner1innerText()
+            winner1innerText()
             console.log("player1 is winner")
 
         }
@@ -342,34 +355,34 @@
             box4.innerHTML === "x" &&
             box5.innerHTML === "x" &&
             box6.innerHTML === "x") {
-                winner1innerText()
+            winner1innerText()
             console.log("player1 is winner")
 
         }
         else if (box7.innerHTML === "x" &&
             box8.innerHTML === "x" &&
             box9.innerHTML === "x") {
-                winner1innerText()
+            winner1innerText()
             console.log("player1 is winner")
 
         }
         else if (box1.innerHTML === "x" &&
             box4.innerHTML === "x" &&
             box7.innerHTML === "x") {
-                winner1innerText()
+            winner1innerText()
             console.log("player1 is winner")
 
         }
         else if (box2.innerHTML === "x" &&
             box5.innerHTML === "x" &&
             box8.innerHTML === "x") {
-                winner1innerText()
+            winner1innerText()
             console.log("player1 is winner")
 
         } else if (box3.innerHTML === "x" &&
             box6.innerHTML === "x" &&
             box9.innerHTML === "x") {
-                winner1innerText()
+            winner1innerText()
             console.log("player1 is winner")
 
         }
@@ -379,53 +392,61 @@
             box5.innerHTML === "0" &&
             box9.innerHTML === "0"
 
-        ) { winner2innerText()
+        ) {
+            winner2innerText()
             console.log("player2 iswinner")
         }
         else if (
             box7.innerHTML === "0" &&
             box5.innerHTML === "0" &&
-            box3.innerHTML === "0") { winner2innerText()
+            box3.innerHTML === "0") {
+                winner2innerText()
             console.log("player2 is winner")
 
         }
         else if (
             box1.innerHTML === "0" &&
             box2.innerHTML === "0" &&
-            box3.innerHTML === "0") { winner2innerText()
+            box3.innerHTML === "0") {
+                winner2innerText()
             console.log("player2 iswinner")
 
         }
         else if (
             box4.innerHTML === "0" &&
             box5.innerHTML === "0" &&
-            box6.innerHTML === "0") { winner2innerText()
+            box6.innerHTML === "0") {
+                winner2innerText()
             console.log("player2 is winner")
 
         }
         else if (box7.innerHTML === "0" &&
             box8.innerHTML === "0" &&
-            box9.innerHTML === "0") { winner2innerText()
+            box9.innerHTML === "0") {
+                winner2innerText()
             console.log("player2 is winner")
 
         }
         else if (
             box1.innerHTML === "0" &&
             box4.innerHTML === "0" &&
-            box7.innerHTML === "0") { winner2innerText()
+            box7.innerHTML === "0") {
+                winner2innerText()
             console.log("player2 is winner")
 
         }
         else if (
             box2.innerHTML === "0" &&
             box5.innerHTML === "0" &&
-            box8.innerHTML === "0") { winner2innerText()
+            box8.innerHTML === "0") {
+                winner2innerText()
             console.log("player2 is winner")
 
         } else if (
             box3.innerHTML === "0" &&
             box6.innerHTML === "0" &&
-            box9.innerHTML === "0") { winner2innerText()
+            box9.innerHTML === "0") {
+                winner2innerText()
             console.log("player2 is winner")
 
         }
